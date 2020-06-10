@@ -1,11 +1,13 @@
 package kr.co.tjoeun.pizzachickenstore_20200610.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_pizza_store_list.*
 import kr.co.tjoeun.pizzachickenstore_20200610.R
+import kr.co.tjoeun.pizzachickenstore_20200610.ViewStoreActivity
 import kr.co.tjoeun.pizzachickenstore_20200610.adapters.PizzaStoreAdapter
 import kr.co.tjoeun.pizzachickenstore_20200610.datas.PizzaStore
 
@@ -29,6 +31,16 @@ class PizzaStoreListFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
+
+        pizzaStoreListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedStore = pizzaStoreList[position]
+            
+            val myIntent = Intent(mContext, ViewStoreActivity::class.java)
+            myIntent.putExtra("store", clickedStore)
+            startActivity(myIntent)
+
+        }
 
     }
 
