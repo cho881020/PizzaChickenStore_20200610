@@ -22,6 +22,8 @@ class MainActivity : BaseActivity() {
     override fun setValues() {
         storePagerAdapter = StoreFragmentPagerAdapter(supportFragmentManager)
         storeViewPager.adapter = storePagerAdapter
+
+        myTabLayout.setupWithViewPager(storeViewPager)
     }
 
 }
