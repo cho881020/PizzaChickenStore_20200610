@@ -16,6 +16,12 @@ class ChickenStoreListFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_chicken_store_list, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setupEvents()
+        setValues()
+    }
+
     override fun setupEvents() {
 
     }
