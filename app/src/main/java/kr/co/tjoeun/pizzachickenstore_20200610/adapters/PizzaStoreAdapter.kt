@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import kr.co.tjoeun.pizzachickenstore_20200610.R
 import kr.co.tjoeun.pizzachickenstore_20200610.datas.PizzaStore
 
@@ -27,6 +30,14 @@ class PizzaStoreAdapter(
         val row = tempRow!!
         
 //        row에 실제 데이터를 뿌려주고
+
+        val logoImg = row.findViewById<ImageView>(R.id.logoImg)
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
+
+        val data = mList[position]
+
+        nameTxt.text = data.name
+        Glide.with(mContext).load(data.logoUrl).into(logoImg)
         
         
 //        완성된 row를 리스트뷰의 재료로 리턴
