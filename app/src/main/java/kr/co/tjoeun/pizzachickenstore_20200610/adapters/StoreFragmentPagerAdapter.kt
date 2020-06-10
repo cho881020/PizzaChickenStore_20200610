@@ -7,6 +7,14 @@ import kr.co.tjoeun.pizzachickenstore_20200610.fragments.ChickenStoreListFragmen
 import kr.co.tjoeun.pizzachickenstore_20200610.fragments.PizzaStoreListFragment
 
 class StoreFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when(position) {
+            0 -> "피자 가게"
+            else -> "치킨집"
+        }
+    }
+
     override fun getItem(position: Int): Fragment {
         return when(position) {
             0 -> PizzaStoreListFragment()
