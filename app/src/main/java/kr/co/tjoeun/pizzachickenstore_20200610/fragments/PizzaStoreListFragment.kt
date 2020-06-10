@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_pizza_store_list.*
 import kr.co.tjoeun.pizzachickenstore_20200610.R
+import kr.co.tjoeun.pizzachickenstore_20200610.adapters.PizzaStoreAdapter
 import kr.co.tjoeun.pizzachickenstore_20200610.datas.PizzaStore
 
 class PizzaStoreListFragment : BaseFragment() {
 
     val pizzaStoreList = ArrayList<PizzaStore>()
+    lateinit var psa : PizzaStoreAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +34,9 @@ class PizzaStoreListFragment : BaseFragment() {
 
     override fun setValues() {
         addPizzaStores()
+
+        psa = PizzaStoreAdapter(mContext, R.layout.pizza_store_list_item, pizzaStoreList)
+        pizzaStoreListView.adapter = psa
 
     }
 
